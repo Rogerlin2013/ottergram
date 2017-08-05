@@ -56,22 +56,21 @@ a {
   font-family: lakeshore;
 }
 
-.thumbnail-item + .thumbnail-item {
-  margin-top: 10px;
-} 
-
 .thumbnail-item {
   display: inline-block;
-  width: 120px;
+  min-width: 120px;
+  max-width: 120px;
   border: 1px solid rgb(100%, 100%, 100%);
   border: 1px solid rgba(100%, 100%, 100%, 0.8);
 }
 
 .thumbnail-list {
+  display: flex; 
   flex: 0 1 auto;
   order: 2;
   list-style: none;
   padding: 0;
+  justify-content: space-between;
 
   white-space: nowrap;
   overflow-x: auto;
@@ -119,4 +118,24 @@ a {
 
 .detail-image {
   width: 90%;
+}
+
+@media all and (orientation : landscape) {
+  .main-content {
+    flex-direction: row;
+    overflow: hidden;
+  }
+  .thumbnail-list {
+    flex-direction: column;
+    order: 0;
+    margin-left: 20px;
+  }
+
+  .thumbnail-item {
+    max-width: 260px;
+  }
+
+  .thumbnail-item + .thumbnail-item {
+    margin-top: 20px;
+  }
 }
